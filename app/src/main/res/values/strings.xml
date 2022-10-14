@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">SuperheroCards</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="profile">Profile</string>
+    <string name="drawer_header_background">Drawer header background</string>
+    <string name="image_of_a_superhero">Image of a superhero</string>
+    <string name="format_rarity">Rarity %d</string>
+    <string name="marvel_legends">Marvel Legends</string>
+    <string name="fake_username">Ian Pedraza</string>
+    <string name="fake_user_id">27389274831687463876892</string>
+    <string name="rarity_number">Rarity number</string>
+
+    <string name="transition_card_image">transitionCardImage</string>
+    <string name="transition_card_name">transitionCardName</string>
+    <string name="transition_card_rarity">transitionCardRarity</string>
+    <string name="favorite_button">Favorite button</string>
+</resources>

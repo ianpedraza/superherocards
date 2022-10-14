@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/horizontalListFragment">
+
+    <fragment
+        android:id="@+id/horizontalListFragment"
+        android:name="com.ianpedraza.superherocards.ui.cards.HorizontalListFragment"
+        android:label="fragment_horizontal_list"
+        tools:layout="@layout/fragment_horizontal_list">
+        <action
+            android:id="@+id/action_horizontalListFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gridListFragment"
+        android:name="com.ianpedraza.superherocards.ui.cards.GridListFragment"
+        android:label="fragment_grid_list"
+        tools:layout="@layout/fragment_grid_list">
+        <action
+            android:id="@+id/action_gridListFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ianpedraza.superherocards.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.ianpedraza.superherocards.ui.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="card"
+            app:argType="com.ianpedraza.superherocards.data.CardModel" />
+    </fragment>
+</navigation>

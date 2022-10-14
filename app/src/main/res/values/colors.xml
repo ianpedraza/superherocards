@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="marvel_50">#FFE6E6</color>
+    <color name="marvel_100">#F4B6B6</color>
+    <color name="marvel_200">#DF7171</color>
+    <color name="marvel_300">#E85A5A</color>
+    <color name="marvel_500">#FFE23636</color>
+    <color name="marvel_700">#FFA81A1A</color>
+
+    <color name="blue_200">#FF4D6AC3</color>
+    <color name="blue_500">#FF024092</color>
+    <color name="blue_700">#FF001B63</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
