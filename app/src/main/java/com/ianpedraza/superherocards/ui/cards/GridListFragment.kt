@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.ianpedraza.superherocards.R
+import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentGridListBinding
 
 class GridListFragment : Fragment() {
@@ -16,7 +17,10 @@ class GridListFragment : Fragment() {
     private var _binding: FragmentGridListBinding? = null
     private val binding: FragmentGridListBinding get() = _binding!!
 
-    private val viewModel: CardsViewModel by viewModels()
+    private val viewModel: CardsViewModel by viewModels {
+        val application = (requireContext().applicationContext as SuperheroCardsApplication)
+        CardsViewModel.CardsViewModelFactory(application.getAllCardsUseCase)
+    }
 
     private lateinit var adapter: CardsListAdapter
 

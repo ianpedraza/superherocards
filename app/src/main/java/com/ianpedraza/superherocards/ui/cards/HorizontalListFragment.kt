@@ -11,13 +11,17 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.ianpedraza.superherocards.R
+import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentHorizontalListBinding
 
 class HorizontalListFragment : Fragment() {
     private var _binding: FragmentHorizontalListBinding? = null
     private val binding: FragmentHorizontalListBinding get() = _binding!!
 
-    private val viewModel: CardsViewModel by viewModels()
+    private val viewModel: CardsViewModel by viewModels {
+        val application = (requireContext().applicationContext as SuperheroCardsApplication)
+        CardsViewModel.CardsViewModelFactory(application.getAllCardsUseCase)
+    }
 
     private lateinit var adapter: CardsListAdapter
 

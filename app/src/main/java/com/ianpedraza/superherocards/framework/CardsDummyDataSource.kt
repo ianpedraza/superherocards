@@ -1,27 +1,28 @@
-package com.ianpedraza.superherocards.data
+package com.ianpedraza.superherocards.framework
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.ianpedraza.superherocards.data.datasources.CardsDataSource
+import com.ianpedraza.superherocards.domain.models.CardModel
+import com.ianpedraza.superherocards.domain.models.Rarity
 
-object CardsDummyData {
+object CardsDummyDataSource : CardsDataSource {
 
-    fun getAll(): List<CardModel> = data.toList()
+    override fun getAll(): LiveData<List<CardModel>> = cards
 
-    fun getFavorites(): LiveData<List<CardModel>> = favorites
+    override fun getFavorites(): LiveData<List<CardModel>> = favorites
 
-    fun addFavorite(card: CardModel) {
+    override fun addFavorite(card: CardModel) {
         favorites.value = favorites.value?.toMutableList()?.apply {
             add(card)
         }
     }
 
-    fun removeFavorite(card: CardModel) {
+    override fun removeFavorite(card: CardModel) {
         favorites.value = favorites.value?.toMutableList()?.apply {
             remove(card)
         }
     }
-
-    private val favorites = MutableLiveData<List<CardModel>>(emptyList())
 
     private val data = arrayOf(
         CardModel(
@@ -295,4 +296,7 @@ object CardsDummyData {
             description = "Simon was released with help from the original Baron Zemo and his Masters of Evil. Simon agreed to undergo an experiment to give him superhuman powers, and Zemo gave him the costumed guise of Wonder Man, warning Simon that he would die without further treatments from Zemo in order to ensure his loyalty."
         )
     ).apply { shuffle() }
+
+    private val favorites = MutableLiveData<List<CardModel>>(emptyList())
+    private val cards = MutableLiveData<List<CardModel>>(data.toList())
 }

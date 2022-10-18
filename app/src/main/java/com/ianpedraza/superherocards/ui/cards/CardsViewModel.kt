@@ -3,12 +3,15 @@ package com.ianpedraza.superherocards.ui.cards
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.ianpedraza.superherocards.data.CardModel
-import com.ianpedraza.superherocards.data.CardsDummyData
+import androidx.lifecycle.ViewModelProvider
+import com.ianpedraza.superherocards.domain.models.CardModel
+import com.ianpedraza.superherocards.usecases.GetAllCardsUseCase
 
-class CardsViewModel : ViewModel() {
+class CardsViewModel(
+    private val getAllCardsUseCase: GetAllCardsUseCase
+) : ViewModel() {
 
-    private val _cards = MutableLiveData<List<CardModel>>()
+    private lateinit var _cards: MutableLiveData<List<CardModel>>
     val cards: LiveData<List<CardModel>> get() = _cards
 
     init {
@@ -16,6 +19,15 @@ class CardsViewModel : ViewModel() {
     }
 
     private fun fetchData() {
-        _cards.value = CardsDummyData.getAll()
+        _cards = getAllCardsUseCase() as MutableLiveData
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    class CardsViewModelFactory(
+        private val getAllCardsUseCase: GetAllCardsUseCase
+    ) : ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return (CardsViewModel(getAllCardsUseCase) as T)
+        }
     }
 }

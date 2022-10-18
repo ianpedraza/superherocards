@@ -31,11 +31,11 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.ianpedraza.superherocards.ui.DetailFragment"
+        android:name="com.ianpedraza.superherocards.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="card"
-            app:argType="com.ianpedraza.superherocards.data.CardModel" />
+            app:argType="com.ianpedraza.superherocards.domain.models.CardModel" />
     </fragment>
 </navigation>

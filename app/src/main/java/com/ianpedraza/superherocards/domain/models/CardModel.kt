@@ -1,4 +1,4 @@
-package com.ianpedraza.superherocards.data
+package com.ianpedraza.superherocards.domain.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

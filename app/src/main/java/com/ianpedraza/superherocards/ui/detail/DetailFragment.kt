@@ -1,4 +1,4 @@
-package com.ianpedraza.superherocards.ui
+package com.ianpedraza.superherocards.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import com.ianpedraza.superherocards.R
-import com.ianpedraza.superherocards.data.CardModel
+import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentDetailBinding
+import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.ui.profile.DetailViewModel
 import com.ianpedraza.superherocards.utils.ViewExtensions.Companion.loadImageByUrl
 
@@ -21,7 +22,15 @@ class DetailFragment : Fragment() {
 
     private val args: DetailFragmentArgs by navArgs()
 
-    private val viewModel: DetailViewModel by viewModels()
+    private val viewModel: DetailViewModel by viewModels {
+        val application = (requireContext().applicationContext as SuperheroCardsApplication)
+
+        DetailViewModel.DetailViewModelFactory(
+            application.getFavoritesUseCase,
+            application.addFavoritesUseCase,
+            application.removeFavoriteUseCase
+        )
+    }
 
     private lateinit var card: CardModel
 
