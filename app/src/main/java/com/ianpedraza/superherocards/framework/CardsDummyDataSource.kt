@@ -10,6 +10,11 @@ object CardsDummyDataSource : CardsDataSource {
 
     override fun getAll(): LiveData<List<CardModel>> = cards
 
+    override fun getAllByRarity(rarity: Rarity): LiveData<List<CardModel>> {
+        val data = cards.value?.filter { card -> card.rarity == rarity } ?: emptyList()
+        return MutableLiveData(data)
+    }
+
     override fun getObtained(): LiveData<List<CardModel>> = obtained
 
     override fun addObtained(card: CardModel) {
@@ -46,7 +51,7 @@ object CardsDummyDataSource : CardsDataSource {
         CardModel(
             name = "Daredevil",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fdaredevil.jpg?alt=media&token=94f06635-b623-465b-af9a-14e925ef854b",
-            rarity = Rarity.Rarity4,
+            rarity = Rarity.Rarity5,
             description = "Matthew Murdock, blinded by chemicals, is an attorney at day and vigilante by night. He is trained in the martial arts and feuds with criminals in Hell's Kitchen. As he fights convicts throughout the city, he meets new allies as well as old friends and becomes Daredevil, a symbol of justice for a corrupted city."
         ),
         CardModel(
@@ -106,7 +111,7 @@ object CardsDummyDataSource : CardsDataSource {
         CardModel(
             name = "Moon Knight",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fmoon_knight.jpg?alt=media&token=febfaffb-0e71-4d34-8aab-77ea977150b8",
-            rarity = Rarity.Rarity2,
+            rarity = Rarity.Rarity3,
             description = "Marc Spector is a former United States Marine and mercenary with dissociative identity disorder. During his childhood, Spector's brother Randall drowned in a cave while they were playing, starting a strenuous and spiteful relationship with his mother, who frequently abused him."
         ),
         CardModel(
@@ -130,7 +135,7 @@ object CardsDummyDataSource : CardsDataSource {
         CardModel(
             name = "Sue Storm - Invisible Girl",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fsue_storm.jpg?alt=media&token=3305a54c-5107-4529-becb-76b714300dcc",
-            rarity = Rarity.Rarity5,
+            rarity = Rarity.Rarity4,
             description = "Sue Storm received her powers by being exposed to a cosmic storm, and was originally known as the Invisible Girl. She possesses two powers: invisibility and force fields. Her invisibility power deals with bending light waves and allows her to render herself and other objects invisible."
         ),
         CardModel(
@@ -154,7 +159,7 @@ object CardsDummyDataSource : CardsDataSource {
         CardModel(
             name = "She-Hulk",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fshe_hulk.jpg?alt=media&token=4f845a23-8b77-4d1d-bdb5-63a4cb28279f",
-            rarity = Rarity.Rarity2,
+            rarity = Rarity.Rarity3,
             description = "Jennifer Walters is a talented lawyer and the cousin of Bruce Banner, the Hulk. After being shot by a mobster and seriously injured, she was saved by a blood transfusion from Bruce, and his gamma-irradiated blood mutated Jennifer into the She-Hulk, kicking off her adventuring career."
         ),
         CardModel(
@@ -166,7 +171,7 @@ object CardsDummyDataSource : CardsDataSource {
         CardModel(
             name = "Namor",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fnamor.jpg?alt=media&token=ccbcad89-2a6e-48f9-83ff-53303a6fcdd2",
-            rarity = Rarity.Rarity2,
+            rarity = Rarity.Rarity4,
             description = "The mutant son of a human sea captain and a prince of the mythical undersea kingdom of Atlantis, Namor possesses the superstrength and aquatic abilities of the Homo mermanus race, as well as the mutant ability of flight, along with other superhuman powers."
         ),
         CardModel(
@@ -256,7 +261,7 @@ object CardsDummyDataSource : CardsDataSource {
         CardModel(
             name = "Nightcrawler",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fnightcrawler.png?alt=media&token=8d05d1e2-c79f-48df-9ad2-4fa873303f40",
-            rarity = Rarity.Rarity3,
+            rarity = Rarity.Rarity2,
             description = "Nightcrawler possesses superhuman agility, the ability to teleport, and adhesive hands and feet. His physical mutations include indigo-colored velvety fur which allows him to become nearly invisible in shadows, two-toed feet, and three-fingered hands, yellow eyes, pointed ears and a prehensile tail."
         ),
         CardModel(
@@ -274,19 +279,19 @@ object CardsDummyDataSource : CardsDataSource {
         CardModel(
             name = "Colossus",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fcolossus.jpg?alt=media&token=0e756f14-7c3c-4c6d-ae13-d2ab340f3abe",
-            rarity = Rarity.Rarity3,
+            rarity = Rarity.Rarity2,
             description = "Colossus is a mutant with the ability to transform his entire body into a form of \"organic steel\", with properties similar to osmium but of still unknown composition. Colossus must transform his entire body into this armored state; he cannot transform only a portion of his body."
         ),
         CardModel(
             name = "Miles Morales (Spiderman)",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fmiles.jpg?alt=media&token=7bdefd95-e4fd-4e70-a518-45c11e7e20ff",
-            rarity = Rarity.Rarity4,
+            rarity = Rarity.Rarity5,
             description = "Gifted with web-shooters and guided by Peter Parker, Miles Morales uses his abilities to be a different kind of Spider-Man. In the alternate reality of Earth-1610, a young New York City teen was bitten by a genetically enhanced spider."
         ),
         CardModel(
             name = "Nova (Richard Rider)",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fnova.jpg?alt=media&token=09fa9f44-f441-456d-b77e-ae1db92244c1",
-            rarity = Rarity.Rarity5,
+            rarity = Rarity.Rarity4,
             description = "Richard Rider was born in Hempstead, New York. As a teenager, he was chosen at random by the alien Rhomann Dey, last surviving Centurion of the planet Xandar's elite Nova Corps, to inherit his power and succeed him in the rank of Nova Prime following the destruction of his world by the intergalactic pirate Zorr."
         ),
         CardModel(

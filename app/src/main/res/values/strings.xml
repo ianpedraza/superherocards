@@ -15,4 +15,10 @@
     <string name="transition_card_name">transitionCardName</string>
     <string name="transition_card_rarity">transitionCardRarity</string>
     <string name="obtained_button">Obtained button</string>
+    <string name="rarity_1">Rarity 1</string>
+    <string name="rarity_2">Rarity 2</string>
+    <string name="rarity_3">Rarity 3</string>
+    <string name="rarity_4">Rarity 4</string>
+    <string name="rarity_5">Rarity 5</string>
+    <string name="all">All</string>
 </resources>

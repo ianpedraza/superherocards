@@ -5,6 +5,7 @@ import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.data.repositories.CardsRepository
 import com.ianpedraza.superherocards.framework.CardsDummyDataSource
 import com.ianpedraza.superherocards.usecases.AddObtainedUseCase
+import com.ianpedraza.superherocards.usecases.GetAllByRarityUseCase
 import com.ianpedraza.superherocards.usecases.GetAllCardsUseCase
 import com.ianpedraza.superherocards.usecases.GetObtainedUseCase
 import com.ianpedraza.superherocards.usecases.RemoveObtainedUseCase
@@ -19,6 +20,9 @@ class SuperheroCardsApplication : Application() {
 
     val getAllCardsUseCase: GetAllCardsUseCase
         get() = GetAllCardsUseCase(repository)
+
+    val getAllByRarityUseCase: GetAllByRarityUseCase
+        get() = GetAllByRarityUseCase(repository)
 
     val getObtainedUseCase: GetObtainedUseCase
         get() = GetObtainedUseCase(repository)

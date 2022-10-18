@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuItemAll"
+        android:title="@string/all" />
+
+    <item
+        android:id="@+id/menuItemRarity1"
+        android:title="@string/rarity_1" />
+
+    <item
+        android:id="@+id/menuItemRarity2"
+        android:title="@string/rarity_2" />
+
+    <item
+        android:id="@+id/menuItemRarity3"
+        android:title="@string/rarity_3" />
+
+    <item
+        android:id="@+id/menuItemRarity4"
+        android:title="@string/rarity_4" />
+
+    <item
+        android:id="@+id/menuItemRarity5"
+        android:title="@string/rarity_5" />
+</menu>

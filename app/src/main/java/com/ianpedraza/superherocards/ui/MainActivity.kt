@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupActionBar() {
         appBarConfiguration = AppBarConfiguration(fragments, binding.drawerLayout)
         NavigationUI.setupWithNavController(binding.topAppBar, navController, appBarConfiguration)
+        setSupportActionBar(binding.topAppBar)
     }
 
     private fun setupBottomNavigationBar() {
