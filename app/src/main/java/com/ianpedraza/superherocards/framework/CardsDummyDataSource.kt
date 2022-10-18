@@ -10,16 +10,16 @@ object CardsDummyDataSource : CardsDataSource {
 
     override fun getAll(): LiveData<List<CardModel>> = cards
 
-    override fun getFavorites(): LiveData<List<CardModel>> = favorites
+    override fun getObtained(): LiveData<List<CardModel>> = obtained
 
-    override fun addFavorite(card: CardModel) {
-        favorites.value = favorites.value?.toMutableList()?.apply {
+    override fun addObtained(card: CardModel) {
+        obtained.value = obtained.value?.toMutableList()?.apply {
             add(card)
         }
     }
 
-    override fun removeFavorite(card: CardModel) {
-        favorites.value = favorites.value?.toMutableList()?.apply {
+    override fun removeObtained(card: CardModel) {
+        obtained.value = obtained.value?.toMutableList()?.apply {
             remove(card)
         }
     }
@@ -297,6 +297,6 @@ object CardsDummyDataSource : CardsDataSource {
         )
     ).apply { shuffle() }
 
-    private val favorites = MutableLiveData<List<CardModel>>(emptyList())
+    private val obtained = MutableLiveData<List<CardModel>>(emptyList())
     private val cards = MutableLiveData<List<CardModel>>(data.toList())
 }

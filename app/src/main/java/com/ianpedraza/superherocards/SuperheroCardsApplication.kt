@@ -4,10 +4,10 @@ import android.app.Application
 import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.data.repositories.CardsRepository
 import com.ianpedraza.superherocards.framework.CardsDummyDataSource
-import com.ianpedraza.superherocards.usecases.AddFavoriteUseCase
+import com.ianpedraza.superherocards.usecases.AddObtainedUseCase
 import com.ianpedraza.superherocards.usecases.GetAllCardsUseCase
-import com.ianpedraza.superherocards.usecases.GetFavoritesUseCase
-import com.ianpedraza.superherocards.usecases.RemoveFavoriteUseCase
+import com.ianpedraza.superherocards.usecases.GetObtainedUseCase
+import com.ianpedraza.superherocards.usecases.RemoveObtainedUseCase
 
 class SuperheroCardsApplication : Application() {
 
@@ -20,12 +20,12 @@ class SuperheroCardsApplication : Application() {
     val getAllCardsUseCase: GetAllCardsUseCase
         get() = GetAllCardsUseCase(repository)
 
-    val getFavoritesUseCase: GetFavoritesUseCase
-        get() = GetFavoritesUseCase(repository)
+    val getObtainedUseCase: GetObtainedUseCase
+        get() = GetObtainedUseCase(repository)
 
-    val addFavoritesUseCase: AddFavoriteUseCase
-        get() = AddFavoriteUseCase(repository)
+    val addObtainedUseCase: AddObtainedUseCase
+        get() = AddObtainedUseCase(repository)
 
-    val removeFavoriteUseCase: RemoveFavoriteUseCase
-        get() = RemoveFavoriteUseCase(repository)
+    val removeObtainedUseCase: RemoveObtainedUseCase
+        get() = RemoveObtainedUseCase(repository)
 }

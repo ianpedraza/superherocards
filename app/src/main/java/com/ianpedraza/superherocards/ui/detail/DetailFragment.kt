@@ -12,7 +12,6 @@ import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentDetailBinding
 import com.ianpedraza.superherocards.domain.models.CardModel
-import com.ianpedraza.superherocards.ui.profile.DetailViewModel
 import com.ianpedraza.superherocards.utils.ViewExtensions.Companion.loadImageByUrl
 
 class DetailFragment : Fragment() {
@@ -26,9 +25,9 @@ class DetailFragment : Fragment() {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
 
         DetailViewModel.DetailViewModelFactory(
-            application.getFavoritesUseCase,
-            application.addFavoritesUseCase,
-            application.removeFavoriteUseCase
+            application.getObtainedUseCase,
+            application.addObtainedUseCase,
+            application.removeObtainedUseCase
         )
     }
 
@@ -62,18 +61,18 @@ class DetailFragment : Fragment() {
 
     private fun setupUI() {
         setupCard(card)
-        binding.fabFavorite.setOnClickListener { viewModel.toggleFavorite() }
+        binding.fabObtained.setOnClickListener { viewModel.toggleObtained() }
     }
 
     private fun subscribeObservers() {
-        viewModel.isFavorite.observe(viewLifecycleOwner) { isFavorite ->
-            val iconResource = if (isFavorite) {
-                R.drawable.ic_start
+        viewModel.isObtained.observe(viewLifecycleOwner) { isObtained ->
+            val iconResource = if (isObtained) {
+                R.drawable.ic_checked
             } else {
-                R.drawable.ic_star_outline
+                R.drawable.ic_unchecked
             }
 
-            binding.fabFavorite.setImageResource(iconResource)
+            binding.fabObtained.setImageResource(iconResource)
         }
     }
 

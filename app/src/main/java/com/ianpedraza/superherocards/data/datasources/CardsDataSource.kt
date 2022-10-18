@@ -5,7 +5,7 @@ import com.ianpedraza.superherocards.domain.models.CardModel
 
 interface CardsDataSource {
     fun getAll(): LiveData<List<CardModel>>
-    fun getFavorites(): LiveData<List<CardModel>>
-    fun addFavorite(card: CardModel)
-    fun removeFavorite(card: CardModel)
+    fun getObtained(): LiveData<List<CardModel>>
+    fun addObtained(card: CardModel)
+    fun removeObtained(card: CardModel)
 }

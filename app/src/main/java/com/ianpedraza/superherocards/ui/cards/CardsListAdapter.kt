@@ -8,8 +8,8 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.databinding.ItemListCardBinding
+import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.utils.ViewExtensions.Companion.getDarkColor
 import com.ianpedraza.superherocards.utils.ViewExtensions.Companion.loadImageByUrl
 

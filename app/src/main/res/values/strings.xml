@@ -14,5 +14,5 @@
     <string name="transition_card_image">transitionCardImage</string>
     <string name="transition_card_name">transitionCardName</string>
     <string name="transition_card_rarity">transitionCardRarity</string>
-    <string name="favorite_button">Favorite button</string>
+    <string name="obtained_button">Obtained button</string>
 </resources>

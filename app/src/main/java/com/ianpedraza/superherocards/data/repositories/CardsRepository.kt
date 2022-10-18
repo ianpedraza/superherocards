@@ -7,9 +7,9 @@ import com.ianpedraza.superherocards.domain.models.CardModel
 class CardsRepository(private val dataSource: CardsDataSource) {
     fun getAll(): LiveData<List<CardModel>> = dataSource.getAll()
 
-    fun getFavorites(): LiveData<List<CardModel>> = dataSource.getFavorites()
+    fun getObtained(): LiveData<List<CardModel>> = dataSource.getObtained()
 
-    fun addFavorite(card: CardModel) = dataSource.addFavorite(card)
+    fun addObtained(card: CardModel) = dataSource.addObtained(card)
 
-    fun removeFavorite(card: CardModel) = dataSource.removeFavorite(card)
+    fun removeObtained(card: CardModel) = dataSource.removeObtained(card)
 }

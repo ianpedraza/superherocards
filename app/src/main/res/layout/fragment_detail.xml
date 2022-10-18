@@ -97,14 +97,14 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabFavorite"
+        android:id="@+id/fab_obtained"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_default"
-        android:contentDescription="@string/favorite_button"
+        android:contentDescription="@string/obtained_button"
         app:layout_anchor="@id/topAppBar"
         app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_star_outline" />
+        app:srcCompat="@drawable/ic_unchecked" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
