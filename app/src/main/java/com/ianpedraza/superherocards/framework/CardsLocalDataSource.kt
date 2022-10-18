@@ -6,7 +6,7 @@ import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.domain.models.Rarity
 
-object CardsDummyDataSource : CardsDataSource {
+object CardsLocalDataSource : CardsDataSource {
 
     override fun getAll(): LiveData<List<CardModel>> = cards
 

@@ -35,13 +35,13 @@ class DetailViewModel(
         }
     }
 
-    private fun addObtained() {
+    fun addObtained() {
         _card.value?.let { card ->
             addObtainedUseCase(card)
         }
     }
 
-    private fun removeObtained() {
+    fun removeObtained() {
         _card.value?.let { card ->
             removeObtainedUseCase(card)
         }

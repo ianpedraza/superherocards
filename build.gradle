@@ -19,4 +19,5 @@ ext {
     fragment_version = "1.5.3"
     glide_version = "4.14.1"
     palette_version = "1.0.0"
+    arch_version = "2.1.0"
 }

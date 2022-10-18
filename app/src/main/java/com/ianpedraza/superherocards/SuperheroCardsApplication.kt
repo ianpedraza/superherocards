@@ -3,7 +3,7 @@ package com.ianpedraza.superherocards
 import android.app.Application
 import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.data.repositories.CardsRepository
-import com.ianpedraza.superherocards.framework.CardsDummyDataSource
+import com.ianpedraza.superherocards.framework.CardsLocalDataSource
 import com.ianpedraza.superherocards.usecases.AddObtainedUseCase
 import com.ianpedraza.superherocards.usecases.GetAllByRarityUseCase
 import com.ianpedraza.superherocards.usecases.GetAllCardsUseCase
@@ -13,7 +13,7 @@ import com.ianpedraza.superherocards.usecases.RemoveObtainedUseCase
 class SuperheroCardsApplication : Application() {
 
     private val dummyDataSource: CardsDataSource
-        get() = CardsDummyDataSource
+        get() = CardsLocalDataSource
 
     private val repository: CardsRepository
         get() = CardsRepository(dummyDataSource)

@@ -63,7 +63,9 @@ dependencies {
     // Dominant Color
     implementation "androidx.palette:palette:$palette_version"
 
+    // Testing
     testImplementation "junit:junit:$junit_version"
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
 
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
