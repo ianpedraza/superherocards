@@ -12,7 +12,6 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
@@ -65,9 +64,9 @@ class HorizontalListFragment : Fragment(), MenuProvider {
         val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
         val snapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(binding.recyclerViewCards)
+        snapHelper.attachToRecyclerView(binding.recyclerViewCardsList)
 
-        binding.recyclerViewCards.apply {
+        binding.recyclerViewCardsList.apply {
             this.adapter = this@HorizontalListFragment.adapter
             layoutManager = manager
         }
@@ -87,13 +86,7 @@ class HorizontalListFragment : Fragment(), MenuProvider {
                         action.card
                     )
 
-                val extras = FragmentNavigatorExtras(
-                    action.imageView to getString(R.string.transition_card_image),
-                    action.textViewName to getString(R.string.transition_card_name),
-                    action.textViewRarity to getString(R.string.transition_card_rarity)
-                )
-
-                findNavController().navigate(navigationAction, extras)
+                findNavController().navigate(navigationAction)
             }
         }
     }

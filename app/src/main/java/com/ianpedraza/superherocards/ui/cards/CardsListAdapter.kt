@@ -2,8 +2,6 @@ package com.ianpedraza.superherocards.ui.cards
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.core.graphics.drawable.toBitmap
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -51,14 +49,7 @@ class CardsListAdapter(
                 }
 
                 cardView.setOnClickListener {
-                    onAction(
-                        Action.OnClick(
-                            item,
-                            imageView,
-                            textViewName,
-                            textViewRarity
-                        )
-                    )
+                    onAction(Action.OnClick(item))
                 }
             }
         }
@@ -79,9 +70,6 @@ private object CardDiffCallback : DiffUtil.ItemCallback<CardModel>() {
 
 sealed interface Action {
     data class OnClick(
-        val card: CardModel,
-        val imageView: ImageView,
-        val textViewName: TextView,
-        val textViewRarity: TextView
+        val card: CardModel
     ) : Action
 }

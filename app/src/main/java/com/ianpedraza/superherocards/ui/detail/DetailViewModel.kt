@@ -7,11 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.usecases.AddObtainedUseCase
-import com.ianpedraza.superherocards.usecases.GetObtainedUseCase
+import com.ianpedraza.superherocards.usecases.GetAllObtainedUseCase
 import com.ianpedraza.superherocards.usecases.RemoveObtainedUseCase
 
 class DetailViewModel(
-    private val getObtainedUseCase: GetObtainedUseCase,
+    private val getAllObtainedUseCase: GetAllObtainedUseCase,
     private val addObtainedUseCase: AddObtainedUseCase,
     private val removeObtainedUseCase: RemoveObtainedUseCase
 ) : ViewModel() {
@@ -19,7 +19,7 @@ class DetailViewModel(
     private val _card = MutableLiveData<CardModel>()
 
     val isObtained: LiveData<Boolean> =
-        Transformations.map(getObtainedUseCase()) { obtained ->
+        Transformations.map(getAllObtainedUseCase()) { obtained ->
             _card.value != null && obtained.contains(_card.value)
         }
 
@@ -49,14 +49,14 @@ class DetailViewModel(
 
     @Suppress("UNCHECKED_CAST")
     class DetailViewModelFactory(
-        private val getObtainedUseCase: GetObtainedUseCase,
+        private val getAllObtainedUseCase: GetAllObtainedUseCase,
         private val addObtainedUseCase: AddObtainedUseCase,
         private val removeObtainedUseCase: RemoveObtainedUseCase
     ) : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return (
                 DetailViewModel(
-                    getObtainedUseCase,
+                    getAllObtainedUseCase,
                     addObtainedUseCase,
                     removeObtainedUseCase
                 ) as T

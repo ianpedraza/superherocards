@@ -25,7 +25,7 @@ class DetailFragment : Fragment() {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
 
         DetailViewModel.DetailViewModelFactory(
-            application.getObtainedUseCase,
+            application.getAllObtainedUseCase,
             application.addObtainedUseCase,
             application.removeObtainedUseCase
         )
@@ -73,6 +73,7 @@ class DetailFragment : Fragment() {
             }
 
             binding.fabObtained.setImageResource(iconResource)
+            binding.fabObtained.tag = iconResource
         }
     }
 

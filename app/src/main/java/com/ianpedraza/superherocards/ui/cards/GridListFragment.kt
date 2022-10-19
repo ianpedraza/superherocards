@@ -12,7 +12,6 @@ import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
@@ -61,7 +60,7 @@ class GridListFragment : Fragment(), MenuProvider {
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerViewCards.apply {
+        binding.recyclerViewCardsGrid.apply {
             this.adapter = this@GridListFragment.adapter
         }
     }
@@ -78,13 +77,7 @@ class GridListFragment : Fragment(), MenuProvider {
                 val navigationAction =
                     GridListFragmentDirections.actionGridListFragmentToDetailFragment(action.card)
 
-                val extras = FragmentNavigatorExtras(
-                    action.imageView to getString(R.string.transition_card_image),
-                    action.textViewName to getString(R.string.transition_card_name),
-                    action.textViewRarity to getString(R.string.transition_card_rarity)
-                )
-
-                findNavController().navigate(navigationAction, extras)
+                findNavController().navigate(navigationAction)
             }
         }
     }

@@ -15,7 +15,9 @@ object CardsLocalDataSource : CardsDataSource {
         return MutableLiveData(data)
     }
 
-    override fun getObtained(): LiveData<List<CardModel>> = obtained
+    override fun getAtPosition(position: Int): CardModel? = cards.value?.get(position)
+
+    override fun getAllObtained(): LiveData<List<CardModel>> = obtained
 
     override fun addObtained(card: CardModel) {
         obtained.value = obtained.value?.toMutableList()?.apply {

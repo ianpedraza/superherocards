@@ -4,13 +4,15 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import java.util.UUID
 
+private const val EMPTY_STRING = ""
+
 @Parcelize
 data class CardModel(
     val id: String = UUID.randomUUID().toString(),
     val name: String,
-    val image: String,
+    val image: String = EMPTY_STRING,
     val rarity: Rarity = Rarity.Rarity1,
-    val description: String,
+    val description: String = EMPTY_STRING,
     val category: Category = Category.Default
 ) : Parcelable
 

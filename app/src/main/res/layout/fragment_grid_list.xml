@@ -7,7 +7,7 @@
     tools:context=".ui.cards.GridListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCards"
+        android:id="@+id/recyclerViewCardsGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

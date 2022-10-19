@@ -22,7 +22,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:transitionName="@string/transition_card_image"
                 app:layout_collapseMode="parallax"
                 tools:src="@drawable/bg_marvel" />
 
@@ -49,7 +48,6 @@
                 android:paddingEnd="@dimen/margin_default"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textStyle="bold"
-                android:transitionName="@string/transition_card_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -62,7 +60,6 @@
                 android:layout_marginStart="@dimen/margin_default"
                 android:layout_marginTop="@dimen/margin_small"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:transitionName="@string/transition_card_rarity"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewName"
                 tools:text="Rarity: 5" />
@@ -74,7 +71,6 @@
                 android:layout_marginStart="@dimen/margin_default"
                 android:layout_marginEnd="@dimen/margin_default"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:transitionName="@string/transition_card_rarity"
                 app:layout_constraintStart_toEndOf="@id/chipRarity"
                 app:layout_constraintTop_toTopOf="@id/chipRarity"
                 tools:text="Default" />
@@ -97,7 +93,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_obtained"
+        android:id="@+id/fabObtained"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_default"
