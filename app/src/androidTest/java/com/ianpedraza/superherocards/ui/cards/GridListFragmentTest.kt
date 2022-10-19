@@ -7,10 +7,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
+import com.ianpedraza.superherocards.CustomMatches
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.data.repositories.DefaultCardsRepository
@@ -37,7 +39,7 @@ internal class GridListFragmentTest {
     }
 
     @Test
-    fun clickOn25thCard_openDetails() {
+    fun navigateTo25thCard() {
         val scenario =
             launchFragmentInContainer<GridListFragment>(Bundle(), R.style.Theme_SuperheroCards)
 
@@ -52,7 +54,14 @@ internal class GridListFragmentTest {
 
         Espresso.onView(ViewMatchers.withId(R.id.recyclerViewCardsGrid))
             .perform(
-                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position),
+                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position)
+            )
+
+        Espresso.onView(ViewMatchers.withId(R.id.recyclerViewCardsGrid))
+            .check(matches(CustomMatches.withViewAtPosition(position, ViewMatchers.isDisplayed())))
+
+        Espresso.onView(ViewMatchers.withId(R.id.recyclerViewCardsGrid))
+            .perform(
                 RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
                     position,
                     ViewActions.click()

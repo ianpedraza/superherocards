@@ -11,7 +11,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.domain.models.CardModel
-import com.ianpedraza.superherocards.domain.models.Rarity
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Before
 import org.junit.Rule
@@ -29,12 +28,7 @@ internal class DetailFragmentTest {
 
     @Before
     fun initRepository() {
-        card = CardModel(
-            name = "Name1",
-            image = "Image1",
-            description = "description1",
-            rarity = Rarity.Rarity1
-        )
+        card = CardModel(name = "Name1")
     }
 
     @Test
