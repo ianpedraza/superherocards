@@ -25,7 +25,7 @@
         android:layout_marginEnd="24dp"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:textColor="?android:windowBackground"
-        tools:text="@string/marvel_legends" />
+        tools:text="@string/fake_username" />
 
     <TextView
         android:id="@+id/textViewDrawerHeaderId"
@@ -36,7 +36,7 @@
         android:layout_marginBottom="24dp"
         android:textAppearance="?attr/textAppearanceBody2"
         android:textColor="?android:windowBackground"
-        tools:text="@string/fake_username" />
+        tools:text="@string/fake_user_id" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
 

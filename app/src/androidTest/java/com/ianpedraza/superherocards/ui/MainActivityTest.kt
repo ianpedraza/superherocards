@@ -1,15 +1,12 @@
-package com.ianpedraza.superherocards.ui.cards
+package com.ianpedraza.superherocards.ui
 
-import android.os.Bundle
-import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.espresso.Espresso.*
+import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions.*
 import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import com.ianpedraza.superherocards.CustomMatches
@@ -18,14 +15,19 @@ import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.data.repositories.DefaultCardsRepository
 import com.ianpedraza.superherocards.framework.CardsLocalDataSource
 import com.ianpedraza.superherocards.usecases.GetAtPositionUseCase
+import org.hamcrest.CoreMatchers.*
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mockito.*
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-internal class GridListFragmentTest {
+class MainActivityTest {
+
+    @get:Rule
+    val activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
     private lateinit var dataSource: CardsDataSource
     private lateinit var repository: DefaultCardsRepository
@@ -39,28 +41,25 @@ internal class GridListFragmentTest {
     }
 
     @Test
-    fun navigateTo25thCard() {
-        val scenario =
-            launchFragmentInContainer<GridListFragment>(Bundle(), R.style.Theme_SuperheroCards)
-
-        val navController = mock(NavController::class.java)
-
-        scenario.onFragment {
-            Navigation.setViewNavController(it.view!!, navController)
-        }
-
+    fun scrollTo25thCard_goToDetail_performAddToFav() {
         val position = 25
-        val itemAtPosition = getAtPositionUseCase(position)!!
 
-        onView(withId(R.id.recyclerViewCardsGrid))
+        onView(withId(R.id.recyclerViewCardsList))
             .perform(
                 scrollToPosition<RecyclerView.ViewHolder>(position)
             )
 
-        onView(withId(R.id.recyclerViewCardsGrid))
-            .check(matches(CustomMatches.withViewAtPosition(position, isDisplayed())))
+        onView(withId(R.id.recyclerViewCardsList))
+            .check(
+                matches(
+                    CustomMatches.withViewAtPosition(
+                        position,
+                        isDisplayed()
+                    )
+                )
+            )
 
-        onView(withId(R.id.recyclerViewCardsGrid))
+        onView(withId(R.id.recyclerViewCardsList))
             .perform(
                 actionOnItemAtPosition<RecyclerView.ViewHolder>(
                     position,
@@ -68,14 +67,17 @@ internal class GridListFragmentTest {
                 )
             )
 
-        verify(navController)
-            .navigate(
-                GridListFragmentDirections.actionGridListFragmentToDetailFragment(
-                    itemAtPosition
+        onView(withId(R.id.fabDetailObtained))
+            .check(matches(isDisplayed()))
+
+        onView(withId(R.id.fabDetailObtained))
+            .perform(click())
+
+        onView(withId(R.id.fabDetailObtained))
+            .check(
+                matches(
+                    withTagValue(equalTo(R.drawable.ic_checked))
                 )
             )
-
-        // onView(withId(R.id.imageViewDetailCover))
-        // .check(matches(isDisplayed()))
     }
 }

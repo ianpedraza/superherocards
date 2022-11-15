@@ -1,4 +1,4 @@
-package com.ianpedraza.superherocards.ui.cards
+package com.ianpedraza.superherocards.ui.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,33 +13,35 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
-import com.ianpedraza.superherocards.databinding.FragmentGridListBinding
+import com.ianpedraza.superherocards.databinding.FragmentFavoritesBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
+import com.ianpedraza.superherocards.ui.cards.Action
+import com.ianpedraza.superherocards.ui.cards.CardsGridAdapter
+import com.ianpedraza.superherocards.ui.cards.CardsListAdapter
 
-class GridListFragment : Fragment(), MenuProvider {
+class FavoritesFragment : Fragment(), MenuProvider {
 
-    private var _binding: FragmentGridListBinding? = null
-    private val binding: FragmentGridListBinding get() = _binding!!
-
-    private val viewModel: CardsViewModel by viewModels {
-        val application = (requireContext().applicationContext as SuperheroCardsApplication)
-        CardsViewModel.CardsViewModelFactory(
-            application.getAllCardsUseCase,
-            application.getAllByRarityUseCase
-        )
-    }
+    private var _binding: FragmentFavoritesBinding? = null
+    private val binding: FragmentFavoritesBinding get() = _binding!!
 
     private lateinit var adapter: CardsGridAdapter
+
+    private val viewModel: FavoritesViewModel by viewModels {
+        val application = (requireContext().applicationContext as SuperheroCardsApplication)
+        FavoritesViewModel.FavoritesViewModelFactory(
+            application.getAllObtainedByRarityUseCase
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentGridListBinding.inflate(inflater, container, false)
-        adapter = CardsGridAdapter(onAction)
+        _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -60,8 +62,12 @@ class GridListFragment : Fragment(), MenuProvider {
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerViewCardsGrid.apply {
-            this.adapter = this@GridListFragment.adapter
+        val layoutManager = GridLayoutManager(requireContext(), 3)
+        adapter = CardsGridAdapter(onAction)
+
+        binding.recyclerViewFavorites.apply {
+            this.adapter = this@FavoritesFragment.adapter
+            this.layoutManager = layoutManager
         }
     }
 
@@ -75,7 +81,7 @@ class GridListFragment : Fragment(), MenuProvider {
         when (action) {
             is Action.OnClick -> {
                 val navigationAction =
-                    GridListFragmentDirections.actionGridListFragmentToDetailFragment(action.card)
+                    FavoritesFragmentDirections.actionFavoritesFragmentToDetailFragment(action.card)
 
                 findNavController().navigate(navigationAction)
             }
@@ -88,7 +94,7 @@ class GridListFragment : Fragment(), MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean = when (menuItem.itemId) {
         R.id.menuItemAll -> {
-            viewModel.fetchData()
+            viewModel.filterByRarity(null)
             true
         }
         R.id.menuItemRarity1 -> {

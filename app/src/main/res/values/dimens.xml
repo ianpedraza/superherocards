@@ -7,5 +7,7 @@
 
     <dimen name="card_radius_default">12dp</dimen>
     <dimen name="rarity_elevation">10dp</dimen>
+
+    <dimen name="image_small_item">60dp</dimen>
 </resources>
 

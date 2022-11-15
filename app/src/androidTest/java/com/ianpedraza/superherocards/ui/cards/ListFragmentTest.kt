@@ -27,7 +27,7 @@ import org.mockito.Mockito.mock
 
 @MediumTest
 @RunWith(AndroidJUnit4::class)
-internal class HorizontalListFragmentTest {
+internal class ListFragmentTest {
 
     private lateinit var dataSource: CardsDataSource
     private lateinit var repository: DefaultCardsRepository
@@ -42,7 +42,7 @@ internal class HorizontalListFragmentTest {
 
     @Test
     fun navigateTo25thCard() {
-        val scenario = launchFragmentInContainer<HorizontalListFragment>(
+        val scenario = launchFragmentInContainer<ListFragment>(
             Bundle(),
             R.style.Theme_SuperheroCards
         )

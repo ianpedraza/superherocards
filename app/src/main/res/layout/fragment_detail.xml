@@ -7,7 +7,7 @@
     tools:context=".ui.detail.DetailFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/topAppBar"
+        android:id="@+id/topAppBarDetail"
         android:layout_width="match_parent"
         android:layout_height="480dp">
 
@@ -15,10 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:toolbarId="@+id/topAppBar">
+            app:toolbarId="@+id/topAppBarDetail">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imageViewCover"
+                android:id="@+id/imageViewDetailCover"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewDetailName"
                 android:layout_width="@dimen/size_constrained"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_default"
@@ -54,29 +54,29 @@
                 tools:text="Spiderman" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chipRarity"
+                android:id="@+id/chipDetailRarity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
                 android:layout_marginTop="@dimen/margin_small"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textViewName"
+                app:layout_constraintTop_toBottomOf="@id/textViewDetailName"
                 tools:text="Rarity: 5" />
 
             <com.google.android.material.chip.Chip
-                android:id="@+id/chipCategory"
+                android:id="@+id/chipDetailCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
                 android:layout_marginEnd="@dimen/margin_default"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintStart_toEndOf="@id/chipRarity"
-                app:layout_constraintTop_toTopOf="@id/chipRarity"
+                app:layout_constraintStart_toEndOf="@id/chipDetailRarity"
+                app:layout_constraintTop_toTopOf="@id/chipDetailRarity"
                 tools:text="Default" />
 
             <TextView
-                android:id="@+id/textViewDescription"
+                android:id="@+id/textViewDetailDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_default"
@@ -85,7 +85,7 @@
                 android:paddingBottom="@dimen/margin_small"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/chipRarity"
+                app:layout_constraintTop_toBottomOf="@id/chipDetailRarity"
                 tools:text="@tools:sample/lorem/random" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -93,12 +93,12 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabObtained"
+        android:id="@+id/fabDetailObtained"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/margin_default"
         android:contentDescription="@string/obtained_button"
-        app:layout_anchor="@id/topAppBar"
+        app:layout_anchor="@id/topAppBarDetail"
         app:layout_anchorGravity="bottom|right|end"
         app:srcCompat="@drawable/ic_unchecked" />
 

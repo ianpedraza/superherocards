@@ -38,9 +38,9 @@ internal class DetailFragmentTest {
             R.style.Theme_SuperheroCards
         )
 
-        Espresso.onView(ViewMatchers.withId(R.id.fabObtained)).perform(ViewActions.click())
+        Espresso.onView(ViewMatchers.withId(R.id.fabDetailObtained)).perform(ViewActions.click())
 
-        Espresso.onView(ViewMatchers.withId(R.id.fabObtained))
+        Espresso.onView(ViewMatchers.withId(R.id.fabDetailObtained))
             .check(matches(ViewMatchers.withTagValue(equalTo(R.drawable.ic_checked))))
     }
 }

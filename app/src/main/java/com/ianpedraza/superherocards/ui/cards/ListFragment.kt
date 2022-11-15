@@ -13,16 +13,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.PagerSnapHelper
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
-import com.ianpedraza.superherocards.databinding.FragmentHorizontalListBinding
+import com.ianpedraza.superherocards.databinding.FragmentListBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
 
-class HorizontalListFragment : Fragment(), MenuProvider {
-    private var _binding: FragmentHorizontalListBinding? = null
-    private val binding: FragmentHorizontalListBinding get() = _binding!!
+class ListFragment : Fragment(), MenuProvider {
+    private var _binding: FragmentListBinding? = null
+    private val binding: FragmentListBinding get() = _binding!!
 
     private val viewModel: CardsViewModel by viewModels {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
@@ -39,7 +39,7 @@ class HorizontalListFragment : Fragment(), MenuProvider {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHorizontalListBinding.inflate(inflater, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
         adapter = CardsListAdapter(onAction)
         return binding.root
     }
@@ -61,14 +61,17 @@ class HorizontalListFragment : Fragment(), MenuProvider {
     }
 
     private fun setupRecyclerView() {
-        val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-        val snapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(binding.recyclerViewCardsList)
+        // val snapHelper = PagerSnapHelper()
+        // snapHelper.attachToRecyclerView(binding.recyclerViewCardsList)
+
+        val itemDecorator = DividerItemDecoration(requireContext(), manager.orientation)
 
         binding.recyclerViewCardsList.apply {
-            this.adapter = this@HorizontalListFragment.adapter
+            this.adapter = this@ListFragment.adapter
             layoutManager = manager
+            addItemDecoration(itemDecorator)
         }
     }
 
@@ -82,7 +85,7 @@ class HorizontalListFragment : Fragment(), MenuProvider {
         when (action) {
             is Action.OnClick -> {
                 val navigationAction =
-                    HorizontalListFragmentDirections.actionHorizontalListFragmentToDetailFragment(
+                    ListFragmentDirections.actionHorizontalListFragmentToDetailFragment(
                         action.card
                     )
 

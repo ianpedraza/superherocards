@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/horizontalListFragment">
+    app:startDestination="@id/listFragment">
 
     <fragment
-        android:id="@+id/horizontalListFragment"
-        android:name="com.ianpedraza.superherocards.ui.cards.HorizontalListFragment"
+        android:id="@+id/listFragment"
+        android:name="com.ianpedraza.superherocards.ui.cards.ListFragment"
         android:label="fragment_horizontal_list"
-        tools:layout="@layout/fragment_horizontal_list">
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_horizontalListFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -37,5 +37,14 @@
         <argument
             android:name="card"
             app:argType="com.ianpedraza.superherocards.domain.models.CardModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.ianpedraza.superherocards.ui.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
-    /* Define the fragments to show within the NavView */
     private val fragments = setOf(
-        R.id.horizontalListFragment,
-        R.id.gridListFragment
+        R.id.listFragment,
+        R.id.gridListFragment,
+        R.id.favoritesFragment
     )
 
     private val drawerGravity = GravityCompat.START
@@ -54,8 +54,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupActionBar() {
         appBarConfiguration = AppBarConfiguration(fragments, binding.drawerLayout)
-        NavigationUI.setupWithNavController(binding.topAppBar, navController, appBarConfiguration)
-        setSupportActionBar(binding.topAppBar)
+        NavigationUI.setupWithNavController(
+            binding.topAppBarDetail,
+            navController,
+            appBarConfiguration
+        )
+        setSupportActionBar(binding.topAppBarDetail)
     }
 
     private fun setupBottomNavigationBar() {
@@ -83,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val onDestinationChangedListener: NavController.OnDestinationChangedListener by lazy {
-        NavController.OnDestinationChangedListener { controller, destination, _ ->
+        NavController.OnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.profileFragment -> {
                     hideBottomNavView(true)

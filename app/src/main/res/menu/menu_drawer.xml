@@ -3,6 +3,5 @@
     <item
         android:id="@+id/profileFragment"
         android:icon="@drawable/ic_account"
-        android:title="@string/profile"
-        android:visible="false" />
+        android:title="@string/profile" />
 </menu>

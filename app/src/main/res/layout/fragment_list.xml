@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.cards.GridListFragment">
+    tools:context=".ui.cards.ListFragment">
+
+    <!--        android:clipToPadding="false"-->
+    <!--        android:padding="@dimen/margin_default"-->
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCardsGrid"
+        android:id="@+id/recyclerViewCardsList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:spanCount="3"
-        tools:listitem="@layout/item_card_grid" />
+        tools:listitem="@layout/item_card_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

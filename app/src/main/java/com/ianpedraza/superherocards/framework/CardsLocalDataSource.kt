@@ -2,6 +2,7 @@ package com.ianpedraza.superherocards.framework
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.domain.models.Rarity
@@ -14,6 +15,17 @@ object CardsLocalDataSource : CardsDataSource {
         val data = cards.value?.filter { card -> card.rarity == rarity } ?: emptyList()
         return MutableLiveData(data)
     }
+
+    override fun getAllObtainedByRarity(rarity: Rarity?): LiveData<List<CardModel>> =
+        Transformations.map(obtained) { list ->
+            val data = if (rarity == null) {
+                list
+            } else {
+                list.filter { card -> card.rarity == rarity }
+            }
+
+            data
+        }
 
     override fun getAtPosition(position: Int): CardModel? = cards.value?.get(position)
 

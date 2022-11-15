@@ -20,4 +20,7 @@ class DefaultCardsRepository(
 
     override fun getAllByRarity(rarity: Rarity): LiveData<List<CardModel>> =
         dataSource.getAllByRarity(rarity)
+
+    override fun getAllObtainedByRarity(rarity: Rarity?): LiveData<List<CardModel>> =
+        dataSource.getAllObtainedByRarity(rarity)
 }

@@ -61,7 +61,7 @@ class DetailFragment : Fragment() {
 
     private fun setupUI() {
         setupCard(card)
-        binding.fabObtained.setOnClickListener { viewModel.toggleObtained() }
+        binding.fabDetailObtained.setOnClickListener { viewModel.toggleObtained() }
     }
 
     private fun subscribeObservers() {
@@ -72,18 +72,18 @@ class DetailFragment : Fragment() {
                 R.drawable.ic_unchecked
             }
 
-            binding.fabObtained.setImageResource(iconResource)
-            binding.fabObtained.tag = iconResource
+            binding.fabDetailObtained.setImageResource(iconResource)
+            binding.fabDetailObtained.tag = iconResource
         }
     }
 
     private fun setupCard(card: CardModel) {
         with(binding) {
-            textViewName.text = card.name
-            textViewDescription.text = card.description
-            chipRarity.text = getString(R.string.format_rarity, card.rarity.number)
-            chipCategory.text = card.category.toString()
-            imageViewCover.loadImageByUrl(card.image)
+            textViewDetailName.text = card.name
+            textViewDetailDescription.text = card.description
+            chipDetailRarity.text = getString(R.string.format_rarity, card.rarity.number)
+            chipDetailCategory.text = card.category.toString()
+            imageViewDetailCover.loadImageByUrl(card.image)
         }
     }
 }

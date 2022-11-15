@@ -19,6 +19,10 @@ class FakeRepository(private val data: List<CardModel>) : CardsRepository {
         return MutableLiveData(filtered)
     }
 
+    override fun getAllObtainedByRarity(rarity: Rarity?): LiveData<List<CardModel>> {
+        return obtained
+    }
+
     override fun getAtPosition(position: Int): CardModel? {
         return data[position]
     }
