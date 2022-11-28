@@ -5,12 +5,11 @@ import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import androidx.test.espresso.Espresso
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.Espresso.*
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.contrib.RecyclerViewActions.*
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.MediumTest
 import com.ianpedraza.superherocards.CustomMatches
@@ -22,8 +21,7 @@ import com.ianpedraza.superherocards.usecases.GetAtPositionUseCase
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito
-import org.mockito.Mockito.mock
+import org.mockito.Mockito.*
 
 @MediumTest
 @RunWith(AndroidJUnit4::class)
@@ -56,26 +54,18 @@ internal class ListFragmentTest {
         val position = 25
         val itemAtPosition = getAtPositionUseCase(position)!!
 
-        Espresso.onView(withId(R.id.recyclerViewCardsList))
+        onView(withId(R.id.recyclerViewCardsList))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(position))
+            .check(matches(CustomMatches.withViewAtPosition(position, isDisplayed())))
             .perform(
-                RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position)
-            )
-
-        Espresso.onView(withId(R.id.recyclerViewCardsList))
-            .check(matches(CustomMatches.withViewAtPosition(position, ViewMatchers.isDisplayed())))
-
-        Espresso.onView(withId(R.id.recyclerViewCardsList))
-            .perform(
-                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(
+                actionOnItemAtPosition<RecyclerView.ViewHolder>(
                     position,
-                    ViewActions.click()
+                    click()
                 )
             )
 
-        Mockito.verify(navController).navigate(
-            HorizontalListFragmentDirections.actionHorizontalListFragmentToDetailFragment(
-                itemAtPosition
-            )
+        verify(navController).navigate(
+            ListFragmentDirections.actionHorizontalListFragmentToDetailFragment(itemAtPosition)
         )
     }
 }
