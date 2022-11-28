@@ -12,23 +12,5 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="navigationViewStyle">@style/Widget.App.NavigationView</item>
-    </style>
-
-    <style name="Widget.App.NavigationView" parent="Widget.MaterialComponents.NavigationView">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.App.NavigationView</item>
-        <item name="itemIconTint">@color/navigation_item_color</item>
-        <item name="itemTextColor">@color/navigation_item_color</item>
-        <item name="subheaderColor">@color/navigation_item_color</item>
-        <item name="itemBackground">@drawable/navigation_item_background</item>
-    </style>
-
-    <style name="ThemeOverlay.App.NavigationView" parent="">
-        <item name="colorPrimary">@color/marvel_100</item>
-        <item name="colorSurface">@color/marvel_50</item>
-        <item name="colorOnSurface">@color/marvel_700</item>
     </style>
 </resources>

@@ -1,49 +1,14 @@
 package com.ianpedraza.superherocards.framework
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.domain.models.Rarity
 
 object CardsLocalDataSource : CardsDataSource {
+    override fun getAll(): List<CardModel> = cards
+    override fun getAtPosition(position: Int): CardModel = cards[position]
 
-    override fun getAll(): LiveData<List<CardModel>> = cards
-
-    override fun getAllByRarity(rarity: Rarity): LiveData<List<CardModel>> {
-        val data = cards.value?.filter { card -> card.rarity == rarity } ?: emptyList()
-        return MutableLiveData(data)
-    }
-
-    override fun getAllObtainedByRarity(rarity: Rarity?): LiveData<List<CardModel>> =
-        Transformations.map(obtained) { list ->
-            val data = if (rarity == null) {
-                list
-            } else {
-                list.filter { card -> card.rarity == rarity }
-            }
-
-            data
-        }
-
-    override fun getAtPosition(position: Int): CardModel? = cards.value?.get(position)
-
-    override fun getAllObtained(): LiveData<List<CardModel>> = obtained
-
-    override fun addObtained(card: CardModel) {
-        obtained.value = obtained.value?.toMutableList()?.apply {
-            add(card)
-        }
-    }
-
-    override fun removeObtained(card: CardModel) {
-        obtained.value = obtained.value?.toMutableList()?.apply {
-            remove(card)
-        }
-    }
-
-    private val data = arrayOf(
+    private val cards: List<CardModel> = listOf(
         CardModel(
             name = "The Scarlet Witch",
             image = "https://firebasestorage.googleapis.com/v0/b/superheros-b1bdc.appspot.com/o/superheros%2Fscarlet_witch.png?alt=media&token=4b508f8e-b653-4ebe-8c1a-a29544221827",
@@ -314,8 +279,5 @@ object CardsLocalDataSource : CardsDataSource {
             rarity = Rarity.Rarity4,
             description = "Simon was released with help from the original Baron Zemo and his Masters of Evil. Simon agreed to undergo an experiment to give him superhuman powers, and Zemo gave him the costumed guise of Wonder Man, warning Simon that he would die without further treatments from Zemo in order to ensure his loyalty."
         )
-    ).apply { shuffle() }
-
-    private val obtained = MutableLiveData<List<CardModel>>(emptyList())
-    private val cards = MutableLiveData<List<CardModel>>(data.toList())
+    )
 }

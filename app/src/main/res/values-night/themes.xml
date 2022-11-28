@@ -12,14 +12,5 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="ThemeOverlay.App.NavigationView" parent="">
-        <item name="colorPrimary">@color/marvel_300</item>
-        <item name="colorSurface">@color/black</item>
-        <item name="colorOnSurface">@color/marvel_50</item>
     </style>
 </resources>

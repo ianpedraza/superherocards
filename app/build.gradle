@@ -47,34 +47,16 @@ dependencies {
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
-    // ViewModel
     implementation "androidx.activity:activity-ktx:$activity_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
-
-    // Fragments
-    implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
 
     // Dominant Color
     implementation "androidx.palette:palette:$palette_version"
-
-    // Testing
-    testImplementation "junit:junit:$junit_version"
-    testImplementation "androidx.arch.core:core-testing:$arch_version"
-
-    // Instrumented Testing
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
-    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
-    androidTestImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_version"
-    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMaker_version"
-    androidTestImplementation "androidx.arch.core:core-testing:$archTesting_version"
-
-    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
 }

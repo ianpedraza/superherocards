@@ -15,7 +15,7 @@ import com.ianpedraza.superherocards.R
 class ViewExtensions {
 
     companion object {
-        fun ImageView.loadImageByUrl(
+        fun ImageView.fromUrl(
             urlImage: String,
             centerCrop: Boolean = true,
             onLoad: ((Drawable?) -> Unit)? = null
