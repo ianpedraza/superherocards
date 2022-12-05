@@ -16,11 +16,9 @@ class FavoritesViewModel(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val _rarity: MutableLiveData<Rarity?> = savedStateHandle.getLiveData(KEY_RARITY, null)
-    private var _obtainedCards: LiveData<List<CardModel>> = savedStateHandle.getLiveData(KEY_OBTAINED_CARDS)
 
     val cards: LiveData<List<CardModel>> = Transformations.switchMap(_rarity) { rarity ->
-        _obtainedCards = getAllObtainedByRarityUseCase(rarity)
-        return@switchMap _obtainedCards
+        return@switchMap getAllObtainedByRarityUseCase(rarity)
     }
 
     fun filterByRarity(rarity: Rarity?) {
@@ -43,6 +41,5 @@ class FavoritesViewModel(
 
     companion object {
         const val KEY_RARITY = "rarity"
-        const val KEY_OBTAINED_CARDS = "obtained_cards"
     }
 }
