@@ -18,8 +18,8 @@ import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentFavoritesBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
-import com.ianpedraza.superherocards.ui.cards.list.Action
 import com.ianpedraza.superherocards.ui.cards.grid.CardsGridAdapter
+import com.ianpedraza.superherocards.ui.cards.list.Action
 
 class FavoritesFragment : Fragment(), MenuProvider {
 
@@ -31,7 +31,8 @@ class FavoritesFragment : Fragment(), MenuProvider {
     private val viewModel: FavoritesViewModel by viewModels {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
         FavoritesViewModel.FavoritesViewModelFactory(
-            application.getAllObtainedByRarityUseCase
+            application.getAllObtainedByRarityUseCase,
+            this@FavoritesFragment
         )
     }
 
