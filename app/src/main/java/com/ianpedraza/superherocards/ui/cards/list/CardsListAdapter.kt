@@ -1,4 +1,4 @@
-package com.ianpedraza.superherocards.ui.cards
+package com.ianpedraza.superherocards.ui.cards.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

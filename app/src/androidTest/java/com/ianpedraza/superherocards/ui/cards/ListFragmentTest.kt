@@ -17,6 +17,7 @@ import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.data.repositories.DefaultCardsRepository
 import com.ianpedraza.superherocards.framework.CardsLocalDataSource
+import com.ianpedraza.superherocards.ui.cards.list.ListFragment
 import com.ianpedraza.superherocards.usecases.GetAtPositionUseCase
 import org.junit.Before
 import org.junit.Test

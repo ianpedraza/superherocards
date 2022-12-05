@@ -18,9 +18,8 @@ import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentFavoritesBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
-import com.ianpedraza.superherocards.ui.cards.Action
-import com.ianpedraza.superherocards.ui.cards.CardsGridAdapter
-import com.ianpedraza.superherocards.ui.cards.CardsListAdapter
+import com.ianpedraza.superherocards.ui.cards.list.Action
+import com.ianpedraza.superherocards.ui.cards.grid.CardsGridAdapter
 
 class FavoritesFragment : Fragment(), MenuProvider {
 

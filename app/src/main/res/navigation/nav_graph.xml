@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.ianpedraza.superherocards.ui.cards.ListFragment"
+        android:name="com.ianpedraza.superherocards.ui.cards.list.ListFragment"
         android:label="fragment_horizontal_list"
         tools:layout="@layout/fragment_list">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/gridListFragment"
-        android:name="com.ianpedraza.superherocards.ui.cards.GridListFragment"
+        android:name="com.ianpedraza.superherocards.ui.cards.grid.GridListFragment"
         android:label="fragment_grid_list"
         tools:layout="@layout/fragment_grid_list">
         <action

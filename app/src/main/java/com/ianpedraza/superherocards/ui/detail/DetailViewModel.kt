@@ -41,7 +41,7 @@ class DetailViewModel(
         }
     }
 
-    fun removeObtained() {
+    private fun removeObtained() {
         _card.value?.let { card ->
             removeObtainedUseCase(card)
         }

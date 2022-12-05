@@ -1,4 +1,4 @@
-package com.ianpedraza.superherocards.ui.cards
+package com.ianpedraza.superherocards.ui.cards.grid
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,16 +13,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
-import com.ianpedraza.superherocards.databinding.FragmentListBinding
+import com.ianpedraza.superherocards.databinding.FragmentGridListBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
+import com.ianpedraza.superherocards.ui.cards.list.Action
+import com.ianpedraza.superherocards.ui.cards.CardsViewModel
 
-class ListFragment : Fragment(), MenuProvider {
-    private var _binding: FragmentListBinding? = null
-    private val binding: FragmentListBinding get() = _binding!!
+class GridListFragment : Fragment(), MenuProvider {
+
+    private var _binding: FragmentGridListBinding? = null
+    private val binding: FragmentGridListBinding get() = _binding!!
 
     private val viewModel: CardsViewModel by viewModels {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
@@ -32,15 +33,15 @@ class ListFragment : Fragment(), MenuProvider {
         )
     }
 
-    private lateinit var adapter: CardsListAdapter
+    private lateinit var adapter: CardsGridAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentListBinding.inflate(inflater, container, false)
-        adapter = CardsListAdapter(onAction)
+        _binding = FragmentGridListBinding.inflate(inflater, container, false)
+        adapter = CardsGridAdapter(onAction)
         return binding.root
     }
 
@@ -61,17 +62,8 @@ class ListFragment : Fragment(), MenuProvider {
     }
 
     private fun setupRecyclerView() {
-        val manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-
-        // val snapHelper = PagerSnapHelper()
-        // snapHelper.attachToRecyclerView(binding.recyclerViewCardsList)
-
-        val itemDecorator = DividerItemDecoration(requireContext(), manager.orientation)
-
-        binding.recyclerViewCardsList.apply {
-            this.adapter = this@ListFragment.adapter
-            layoutManager = manager
-            addItemDecoration(itemDecorator)
+        binding.recyclerViewCardsGrid.apply {
+            this.adapter = this@GridListFragment.adapter
         }
     }
 
@@ -85,9 +77,7 @@ class ListFragment : Fragment(), MenuProvider {
         when (action) {
             is Action.OnClick -> {
                 val navigationAction =
-                    ListFragmentDirections.actionHorizontalListFragmentToDetailFragment(
-                        action.card
-                    )
+                    GridListFragmentDirections.actionGridListFragmentToDetailFragment(action.card)
 
                 findNavController().navigate(navigationAction)
             }

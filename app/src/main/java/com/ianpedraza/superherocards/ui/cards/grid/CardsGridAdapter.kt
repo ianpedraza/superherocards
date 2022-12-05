@@ -1,4 +1,4 @@
-package com.ianpedraza.superherocards.ui.cards
+package com.ianpedraza.superherocards.ui.cards.grid
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ianpedraza.superherocards.databinding.ItemCardGridBinding
 import com.ianpedraza.superherocards.domain.models.CardModel
+import com.ianpedraza.superherocards.ui.cards.list.Action
+import com.ianpedraza.superherocards.ui.cards.list.CardDiffCallback
 import com.ianpedraza.superherocards.utils.ViewExtensions.Companion.getDarkColor
 import com.ianpedraza.superherocards.utils.ViewExtensions.Companion.loadImageByUrl
 
