@@ -29,7 +29,8 @@ class ListFragment : Fragment(), MenuProvider {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
         CardsViewModel.CardsViewModelFactory(
             application.getAllCardsUseCase,
-            application.getAllByRarityUseCase
+            application.getAllByRarityUseCase,
+            this
         )
     }
 
@@ -101,7 +102,7 @@ class ListFragment : Fragment(), MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean = when (menuItem.itemId) {
         R.id.menuItemAll -> {
-            viewModel.fetchData()
+            viewModel.filterByRarity(null)
             true
         }
         R.id.menuItemRarity1 -> {

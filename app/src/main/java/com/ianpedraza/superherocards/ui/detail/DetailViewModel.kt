@@ -1,26 +1,32 @@
 package com.ianpedraza.superherocards.ui.detail
 
+import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.savedstate.SavedStateRegistryOwner
 import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.usecases.AddObtainedUseCase
-import com.ianpedraza.superherocards.usecases.GetAllObtainedUseCase
+import com.ianpedraza.superherocards.usecases.IsCardObtainedUseCase
 import com.ianpedraza.superherocards.usecases.RemoveObtainedUseCase
 
 class DetailViewModel(
-    private val getAllObtainedUseCase: GetAllObtainedUseCase,
+    private val isCardObtainedUseCase: IsCardObtainedUseCase,
     private val addObtainedUseCase: AddObtainedUseCase,
-    private val removeObtainedUseCase: RemoveObtainedUseCase
+    private val removeObtainedUseCase: RemoveObtainedUseCase,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
-
-    private val _card = MutableLiveData<CardModel>()
+    private val _card: MutableLiveData<CardModel> = savedStateHandle.getLiveData(KEY_CARD)
 
     val isObtained: LiveData<Boolean> =
-        Transformations.map(getAllObtainedUseCase()) { obtained ->
-            _card.value != null && obtained.contains(_card.value)
+        Transformations.switchMap(_card) { card ->
+            return@switchMap if (card == null) {
+                MutableLiveData(false)
+            } else {
+                isCardObtainedUseCase(card)
+            }
         }
 
     fun setCard(card: CardModel) {
@@ -47,18 +53,28 @@ class DetailViewModel(
         }
     }
 
+    companion object {
+        const val KEY_CARD = "card"
+    }
+
     @Suppress("UNCHECKED_CAST")
     class DetailViewModelFactory(
-        private val getAllObtainedUseCase: GetAllObtainedUseCase,
+        private val isCardObtainedUseCase: IsCardObtainedUseCase,
         private val addObtainedUseCase: AddObtainedUseCase,
-        private val removeObtainedUseCase: RemoveObtainedUseCase
-    ) : ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        private val removeObtainedUseCase: RemoveObtainedUseCase,
+        savedStateRegistryOwner: SavedStateRegistryOwner
+    ) : AbstractSavedStateViewModelFactory(savedStateRegistryOwner, null) {
+        override fun <T : ViewModel> create(
+            key: String,
+            modelClass: Class<T>,
+            handle: SavedStateHandle
+        ): T {
             return (
                 DetailViewModel(
-                    getAllObtainedUseCase,
+                    isCardObtainedUseCase,
                     addObtainedUseCase,
-                    removeObtainedUseCase
+                    removeObtainedUseCase,
+                    handle
                 ) as T
                 )
         }

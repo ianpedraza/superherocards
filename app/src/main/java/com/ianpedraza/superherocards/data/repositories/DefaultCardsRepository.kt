@@ -12,6 +12,8 @@ class DefaultCardsRepository(
 
     override fun getAllObtained(): LiveData<List<CardModel>> = dataSource.getAllObtained()
 
+    override fun isCardObtained(card: CardModel) = dataSource.isCardObtained(card)
+
     override fun getAtPosition(position: Int): CardModel? = dataSource.getAtPosition(position)
 
     override fun addObtained(card: CardModel) = dataSource.addObtained(card)

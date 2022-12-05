@@ -32,7 +32,7 @@ class FavoritesFragment : Fragment(), MenuProvider {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
         FavoritesViewModel.FavoritesViewModelFactory(
             application.getAllObtainedByRarityUseCase,
-            this@FavoritesFragment
+            this
         )
     }
 

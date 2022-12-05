@@ -25,9 +25,10 @@ class DetailFragment : Fragment() {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
 
         DetailViewModel.DetailViewModelFactory(
-            application.getAllObtainedUseCase,
+            application.isCardObtainedUseCase,
             application.addObtainedUseCase,
-            application.removeObtainedUseCase
+            application.removeObtainedUseCase,
+            this
         )
     }
 

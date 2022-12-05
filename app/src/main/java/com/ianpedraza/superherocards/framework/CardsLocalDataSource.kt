@@ -31,6 +31,11 @@ object CardsLocalDataSource : CardsDataSource {
 
     override fun getAllObtained(): LiveData<List<CardModel>> = obtained
 
+    override fun isCardObtained(card: CardModel): LiveData<Boolean> =
+        Transformations.map(obtained) { list ->
+            list.contains(card)
+        }
+
     override fun addObtained(card: CardModel) {
         obtained.value = obtained.value?.toMutableList()?.apply {
             add(card)

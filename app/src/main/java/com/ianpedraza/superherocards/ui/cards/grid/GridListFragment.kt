@@ -17,8 +17,8 @@ import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentGridListBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
-import com.ianpedraza.superherocards.ui.cards.list.Action
 import com.ianpedraza.superherocards.ui.cards.CardsViewModel
+import com.ianpedraza.superherocards.ui.cards.list.Action
 
 class GridListFragment : Fragment(), MenuProvider {
 
@@ -29,7 +29,8 @@ class GridListFragment : Fragment(), MenuProvider {
         val application = (requireContext().applicationContext as SuperheroCardsApplication)
         CardsViewModel.CardsViewModelFactory(
             application.getAllCardsUseCase,
-            application.getAllByRarityUseCase
+            application.getAllByRarityUseCase,
+            this
         )
     }
 
@@ -90,7 +91,7 @@ class GridListFragment : Fragment(), MenuProvider {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean = when (menuItem.itemId) {
         R.id.menuItemAll -> {
-            viewModel.fetchData()
+            viewModel.filterByRarity(null)
             true
         }
         R.id.menuItemRarity1 -> {

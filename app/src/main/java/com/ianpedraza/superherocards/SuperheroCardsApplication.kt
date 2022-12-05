@@ -9,6 +9,7 @@ import com.ianpedraza.superherocards.usecases.GetAllCardsUseCase
 import com.ianpedraza.superherocards.usecases.GetAllObtainedByRarityUseCase
 import com.ianpedraza.superherocards.usecases.GetAllObtainedUseCase
 import com.ianpedraza.superherocards.usecases.GetAtPositionUseCase
+import com.ianpedraza.superherocards.usecases.IsCardObtainedUseCase
 import com.ianpedraza.superherocards.usecases.RemoveObtainedUseCase
 
 class SuperheroCardsApplication : Application() {
@@ -30,4 +31,6 @@ class SuperheroCardsApplication : Application() {
     val removeObtainedUseCase = RemoveObtainedUseCase(defaultCardsRepository)
 
     val getAllObtainedByRarityUseCase = GetAllObtainedByRarityUseCase(defaultCardsRepository)
+
+    val isCardObtainedUseCase = IsCardObtainedUseCase(defaultCardsRepository)
 }
