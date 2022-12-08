@@ -4,17 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
-import androidx.transition.TransitionInflater
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentDetailBinding
 import com.ianpedraza.superherocards.domain.models.CardModel
+import com.ianpedraza.superherocards.ui.common.BaseLifecycleObserverFragment
 import com.ianpedraza.superherocards.utils.ViewExtensions.Companion.loadImageByUrl
 
-class DetailFragment : Fragment() {
+class DetailFragment : BaseLifecycleObserverFragment(TAG) {
 
     private var _binding: FragmentDetailBinding? = null
     private val binding: FragmentDetailBinding get() = _binding!!
@@ -34,20 +33,12 @@ class DetailFragment : Fragment() {
 
     private lateinit var card: CardModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val transition =
-            TransitionInflater.from(requireContext()).inflateTransition(android.R.transition.move)
-        sharedElementEnterTransition = transition
-        sharedElementReturnTransition = transition
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         card = args.card
         viewModel.setCard(card)
@@ -86,5 +77,9 @@ class DetailFragment : Fragment() {
             chipDetailCategory.text = card.category.toString()
             imageViewDetailCover.loadImageByUrl(card.image)
         }
+    }
+
+    companion object {
+        private const val TAG = "DetailFragment"
     }
 }

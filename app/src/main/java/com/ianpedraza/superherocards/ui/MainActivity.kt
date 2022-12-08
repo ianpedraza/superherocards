@@ -3,7 +3,6 @@ package com.ianpedraza.superherocards.ui
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -12,9 +11,10 @@ import androidx.navigation.ui.NavigationUI
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.databinding.ActivityMainBinding
 import com.ianpedraza.superherocards.databinding.DrawerHeaderBinding
+import com.ianpedraza.superherocards.ui.common.BaseLifecycleObserverActivity
 import com.ianpedraza.superherocards.utils.viewBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseLifecycleObserverActivity(TAG) {
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
@@ -120,4 +120,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean =
         NavigationUI.navigateUp(navController, appBarConfiguration)
+
+    companion object {
+        private const val TAG = "MainActivity"
+    }
 }

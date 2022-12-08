@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
@@ -20,8 +19,9 @@ import com.ianpedraza.superherocards.databinding.FragmentFavoritesBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
 import com.ianpedraza.superherocards.ui.cards.grid.CardsGridAdapter
 import com.ianpedraza.superherocards.ui.cards.list.Action
+import com.ianpedraza.superherocards.ui.common.BaseLifecycleObserverFragment
 
-class FavoritesFragment : Fragment(), MenuProvider {
+class FavoritesFragment : BaseLifecycleObserverFragment(TAG), MenuProvider {
 
     private var _binding: FragmentFavoritesBinding? = null
     private val binding: FragmentFavoritesBinding get() = _binding!!
@@ -41,6 +41,7 @@ class FavoritesFragment : Fragment(), MenuProvider {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentFavoritesBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -118,5 +119,9 @@ class FavoritesFragment : Fragment(), MenuProvider {
             true
         }
         else -> false
+    }
+
+    companion object {
+        private const val TAG = "FavoritesFragment"
     }
 }

@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
@@ -19,8 +18,9 @@ import com.ianpedraza.superherocards.databinding.FragmentGridListBinding
 import com.ianpedraza.superherocards.domain.models.Rarity
 import com.ianpedraza.superherocards.ui.cards.CardsViewModel
 import com.ianpedraza.superherocards.ui.cards.list.Action
+import com.ianpedraza.superherocards.ui.common.BaseLifecycleObserverFragment
 
-class GridListFragment : Fragment(), MenuProvider {
+class GridListFragment : BaseLifecycleObserverFragment(TAG), MenuProvider {
 
     private var _binding: FragmentGridListBinding? = null
     private val binding: FragmentGridListBinding get() = _binding!!
@@ -41,6 +41,7 @@ class GridListFragment : Fragment(), MenuProvider {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
         _binding = FragmentGridListBinding.inflate(inflater, container, false)
         adapter = CardsGridAdapter(onAction)
         return binding.root
@@ -115,5 +116,9 @@ class GridListFragment : Fragment(), MenuProvider {
             true
         }
         else -> false
+    }
+
+    companion object {
+        private const val TAG = "GridListFragment"
     }
 }
