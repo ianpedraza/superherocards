@@ -18,6 +18,7 @@ import com.ianpedraza.superherocards.data.datasources.CardsDataSource
 import com.ianpedraza.superherocards.data.repositories.DefaultCardsRepository
 import com.ianpedraza.superherocards.framework.CardsLocalDataSource
 import com.ianpedraza.superherocards.ui.cards.grid.GridListFragment
+import com.ianpedraza.superherocards.ui.cards.grid.GridListFragmentDirections
 import com.ianpedraza.superherocards.usecases.GetAtPositionUseCase
 import org.junit.Before
 import org.junit.Test

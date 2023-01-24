@@ -31,4 +31,65 @@
         <item name="colorSurface">@color/marvel_50</item>
         <item name="colorOnSurface">@color/marvel_700</item>
     </style>
+
+    <style name="Theme.SuperheroCards.Drawer.Header" parent="Theme.SuperheroCards">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.Drawer.Header.Title" parent="Theme.SuperheroCards.Drawer.Header">
+        <item name="android:textAppearance">?attr/textAppearanceHeadline6</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.Drawer.Header.Subtitle" parent="Theme.SuperheroCards.Drawer.Header">
+        <item name="android:textAppearance">?attr/textAppearanceBody2</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.Detail.Title" parent="Theme.SuperheroCards">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.Detail.Chip" parent="Theme.SuperheroCards">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.Detail.Body" parent="Theme.SuperheroCards">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.Profile.Text" parent="Theme.SuperheroCards">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.GridItem.Rarity" parent="Theme.SuperheroCards">
+        <item name="android:background">@drawable/bg_rarity</item>
+        <item name="android:elevation">@dimen/rarity_elevation</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.GridItem.Title" parent="Theme.SuperheroCards">
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:lines">1</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.ListItem.Title" parent="Theme.SuperheroCards">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Theme.SuperheroCards.ListItem.Subtitle" parent="Theme.SuperheroCards">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+    </style>
 </resources>
+

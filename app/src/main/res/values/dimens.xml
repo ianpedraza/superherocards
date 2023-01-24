@@ -9,5 +9,11 @@
     <dimen name="rarity_elevation">10dp</dimen>
 
     <dimen name="image_small_item">60dp</dimen>
+
+    <dimen name="profile_picture_size">80dp</dimen>
+
+    <dimen name="detail_picture_height">480dp</dimen>
+    <dimen name="list_item_picture_height">80dp</dimen>
+    <dimen name="list_item_picture_width">60dp</dimen>
 </resources>
 

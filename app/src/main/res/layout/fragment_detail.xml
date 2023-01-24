@@ -9,7 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/topAppBarDetail"
         android:layout_width="match_parent"
-        android:layout_height="480dp">
+        android:layout_height="@dimen/detail_picture_height">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -41,13 +41,12 @@
 
             <TextView
                 android:id="@+id/textViewDetailName"
+                style="@style/Theme.SuperheroCards.Detail.Title"
                 android:layout_width="@dimen/size_constrained"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_default"
                 android:paddingStart="@dimen/margin_default"
                 android:paddingEnd="@dimen/margin_default"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,35 +54,35 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipDetailRarity"
+                style="@style/Theme.SuperheroCards.Detail.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
                 android:layout_marginTop="@dimen/margin_small"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewDetailName"
                 tools:text="Rarity: 5" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipDetailCategory"
+                style="@style/Theme.SuperheroCards.Detail.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
                 android:layout_marginEnd="@dimen/margin_default"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintStart_toEndOf="@id/chipDetailRarity"
                 app:layout_constraintTop_toTopOf="@id/chipDetailRarity"
                 tools:text="Default" />
 
             <TextView
                 android:id="@+id/textViewDetailDescription"
+                style="@style/Theme.SuperheroCards.Detail.Body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_default"
                 android:paddingStart="@dimen/margin_default"
                 android:paddingEnd="@dimen/margin_default"
                 android:paddingBottom="@dimen/margin_small"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/chipDetailRarity"
                 tools:text="@tools:sample/lorem/random" />

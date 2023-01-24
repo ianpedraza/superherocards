@@ -7,7 +7,7 @@ import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.domain.models.Rarity
 import com.ianpedraza.superherocards.getOrAwaitValue
 import com.ianpedraza.superherocards.usecases.AddObtainedUseCase
-import com.ianpedraza.superherocards.usecases.GetAllObtainedUseCase
+import com.ianpedraza.superherocards.usecases.IsCardObtainedUseCase
 import com.ianpedraza.superherocards.usecases.RemoveObtainedUseCase
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual
@@ -29,7 +29,7 @@ internal class DetailViewModelTest {
 
     private lateinit var repository: CardsRepository
 
-    private lateinit var getAllObtainedUseCase: GetAllObtainedUseCase
+    private lateinit var isCardObtainedUseCase: IsCardObtainedUseCase
     private lateinit var addObtainedUseCase: AddObtainedUseCase
     private lateinit var removeObtainedUseCase: RemoveObtainedUseCase
 
@@ -45,12 +45,11 @@ internal class DetailViewModelTest {
 
         repository = FakeRepository(fakeData)
 
-        getAllObtainedUseCase = GetAllObtainedUseCase(repository)
+        isCardObtainedUseCase = IsCardObtainedUseCase(repository)
         addObtainedUseCase = AddObtainedUseCase(repository)
         removeObtainedUseCase = RemoveObtainedUseCase(repository)
 
-        cardsViewModel =
-            DetailViewModel(getAllObtainedUseCase, addObtainedUseCase, removeObtainedUseCase)
+        // cardsViewModel = DetailViewModel(isCardObtainedUseCase, addObtainedUseCase, removeObtainedUseCase)
 
         cardsViewModel.setCard(card1)
     }

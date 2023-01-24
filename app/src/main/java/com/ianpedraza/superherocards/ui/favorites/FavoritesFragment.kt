@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.ianpedraza.superherocards.R
 import com.ianpedraza.superherocards.SuperheroCardsApplication
 import com.ianpedraza.superherocards.databinding.FragmentFavoritesBinding
+import com.ianpedraza.superherocards.domain.models.CardModel
 import com.ianpedraza.superherocards.domain.models.Rarity
 import com.ianpedraza.superherocards.ui.cards.grid.CardsGridAdapter
 import com.ianpedraza.superherocards.ui.cards.list.Action
@@ -74,7 +75,17 @@ class FavoritesFragment : BaseLifecycleObserverFragment(TAG), MenuProvider {
 
     private fun subscribeObservers() {
         viewModel.cards.observe(viewLifecycleOwner) { cards ->
-            adapter.submitList(cards)
+            bindCards(cards)
+        }
+    }
+
+    private fun bindCards(cards: List<CardModel>) {
+        adapter.submitList(cards)
+
+        binding.textViewDetailEmptyList.visibility = if (cards.isEmpty()) {
+            View.VISIBLE
+        } else {
+            View.GONE
         }
     }
 

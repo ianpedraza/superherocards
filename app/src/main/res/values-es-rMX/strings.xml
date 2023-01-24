@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="list">Listado</string>
+    <string name="grid">Cuadrícula</string>
+    <string name="profile">Perfil</string>
+    <string name="detail">Detalle</string>
+    <string name="favorites">Favoritos</string>
+
+    <string name="no_favorites_yet">Aún no hay favoritos</string>
+    <string name="drawer_header_background">Fondo del menú de navegación</string>
+    <string name="image_of_a_superhero">Imagen de un superhéroe / superhéroina</string>
+    <string name="format_rarity">Rareza %d</string>
+    <string name="rarity_number">Número de rareza</string>
+
+    <string name="obtained_button">Botón de obtenido</string>
+    <string name="rarity_1">Rareza 1</string>
+    <string name="rarity_2">Rareza 2</string>
+    <string name="rarity_3">Rareza 3</string>
+    <string name="rarity_4">Rareza 4</string>
+    <string name="rarity_5">Rareza 5</string>
+    <string name="all">Todos</string>
+</resources>

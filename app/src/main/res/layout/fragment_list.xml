@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.cards.list.ListFragment">
 
-    <!--        android:clipToPadding="false"-->
-    <!--        android:padding="@dimen/margin_default"-->
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCardsList"
         android:layout_width="match_parent"

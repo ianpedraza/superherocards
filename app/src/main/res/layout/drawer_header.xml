@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageViewDrawerHeader"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="@dimen/profile_picture_size"
+        android:layout_height="@dimen/profile_picture_size"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:contentDescription="@string/drawer_header_background"
@@ -18,24 +18,22 @@
 
     <TextView
         android:id="@+id/textViewDrawerHeaderName"
+        style="@style/Theme.SuperheroCards.Drawer.Header.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:textAppearance="?attr/textAppearanceHeadline6"
-        android:textColor="?android:windowBackground"
         tools:text="@string/fake_username" />
 
     <TextView
         android:id="@+id/textViewDrawerHeaderId"
+        style="@style/Theme.SuperheroCards.Drawer.Header.Subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:textAppearance="?attr/textAppearanceBody2"
-        android:textColor="?android:windowBackground"
         tools:text="@string/fake_user_id" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

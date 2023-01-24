@@ -1,14 +1,18 @@
 <resources>
-    <string name="app_name">SuperheroCards</string>
+    <string name="app_name" translatable="false">SuperheroCards</string>
+    <string name="fake_username" translatable="false">Ian Pedraza</string>
+    <string name="fake_user_id" translatable="false">27389274831687463876892</string>
+
     <string name="list">List</string>
     <string name="grid">Grid</string>
     <string name="profile">Profile</string>
+    <string name="detail">Detail</string>
+    <string name="favorites">Favorites</string>
+
+    <string name="no_favorites_yet">No favorites yet</string>
     <string name="drawer_header_background">Drawer header background</string>
     <string name="image_of_a_superhero">Image of a superhero</string>
     <string name="format_rarity">Rarity %d</string>
-    <string name="marvel_legends">Marvel Legends</string>
-    <string name="fake_username">Ian Pedraza</string>
-    <string name="fake_user_id">27389274831687463876892</string>
     <string name="rarity_number">Rarity number</string>
 
     <string name="obtained_button">Obtained button</string>
@@ -18,7 +22,4 @@
     <string name="rarity_4">Rarity 4</string>
     <string name="rarity_5">Rarity 5</string>
     <string name="all">All</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="favorites">Favorites</string>
 </resources>

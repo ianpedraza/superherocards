@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listFragment"
         android:name="com.ianpedraza.superherocards.ui.cards.list.ListFragment"
-        android:label="fragment_horizontal_list"
+        android:label="@string/list"
         tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_horizontalListFragment_to_detailFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/gridListFragment"
         android:name="com.ianpedraza.superherocards.ui.cards.grid.GridListFragment"
-        android:label="fragment_grid_list"
+        android:label="@string/grid"
         tools:layout="@layout/fragment_grid_list">
         <action
             android:id="@+id/action_gridListFragment_to_detailFragment"
@@ -27,12 +27,12 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.ianpedraza.superherocards.ui.profile.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.ianpedraza.superherocards.ui.detail.DetailFragment"
-        android:label="fragment_detail"
+        android:label="@string/detail"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="card"
@@ -41,8 +41,8 @@
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.ianpedraza.superherocards.ui.favorites.FavoritesFragment"
-        android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" >
+        android:label="@string/favorites"
+        tools:layout="@layout/fragment_favorites">
         <action
             android:id="@+id/action_favoritesFragment_to_detailFragment"
             app:destination="@id/detailFragment" />

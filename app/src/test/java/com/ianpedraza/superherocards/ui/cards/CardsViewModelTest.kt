@@ -50,7 +50,7 @@ internal class CardsViewModelTest {
         getAllCardsUseCase = GetAllCardsUseCase(repository)
         getAllByRarityUseCase = GetAllByRarityUseCase(repository)
 
-        cardsViewModel = CardsViewModel(getAllCardsUseCase, getAllByRarityUseCase)
+        // cardsViewModel = CardsViewModel(getAllCardsUseCase, getAllByRarityUseCase)
     }
 
     @Test
