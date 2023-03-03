@@ -41,7 +41,7 @@
 
             <TextView
                 android:id="@+id/textViewDetailName"
-                style="@style/Theme.SuperheroCards.Detail.Title"
+                style="@style/Theme.CollectibleCards.Detail.Title"
                 android:layout_width="@dimen/size_constrained"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_default"
@@ -54,7 +54,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipDetailRarity"
-                style="@style/Theme.SuperheroCards.Detail.Chip"
+                style="@style/Theme.CollectibleCards.Detail.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
@@ -65,7 +65,7 @@
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipDetailCategory"
-                style="@style/Theme.SuperheroCards.Detail.Chip"
+                style="@style/Theme.CollectibleCards.Detail.Chip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_default"
@@ -76,7 +76,7 @@
 
             <TextView
                 android:id="@+id/textViewDetailDescription"
-                style="@style/Theme.SuperheroCards.Detail.Body"
+                style="@style/Theme.CollectibleCards.Detail.Body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_default"

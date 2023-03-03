@@ -11,6 +11,14 @@
     <color name="blue_500">#FF024092</color>
     <color name="blue_700">#FF001B63</color>
 
+    <color name="animals_100">#38786a</color>
+    <color name="animals_500">#004c3f</color>
+    <color name="animals_700">#002419</color>
+
+    <color name="magenta_100">#bc477b</color>
+    <color name="magenta_500">#880e4f</color>
+    <color name="magenta_700">#560027</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>

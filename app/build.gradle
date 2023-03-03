@@ -4,14 +4,15 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    namespace 'com.ianpedraza.superherocards'
+    namespace 'com.ianpedraza.collectiblecards'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.ianpedraza.superherocards"
+        applicationId "com.ianpedraza.collectiblecards"
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -24,6 +25,23 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        superheroes {
+            applicationIdSuffix ".superheroes"
+            versionNameSuffix "-superheroes"
+            resValue "string", "app_name", "Marvel Superheroes Cards"
+            manifestPlaceholders = [appTheme: "@style/Theme.CollectibleCards.Superheroes"]
+        }
+
+        animals {
+            applicationIdSuffix ".animals"
+            versionNameSuffix "-animals"
+            resValue "string", "app_name", "Animals Cards"
+            manifestPlaceholders = [appTheme: "@style/Theme.CollectibleCards.Animals"]
         }
     }
 
@@ -63,9 +81,16 @@ dependencies {
     // Dominant Color
     implementation "androidx.palette:palette:$palette_version"
 
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
     // Testing
     testImplementation "junit:junit:$junit_version"
     testImplementation "androidx.arch.core:core-testing:$arch_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
 
     // Instrumented Testing
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"

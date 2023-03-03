@@ -24,7 +24,7 @@
 
     <TextView
         android:id="@+id/textViewItemListName"
-        style="@style/Theme.SuperheroCards.ListItem.Title"
+        style="@style/Theme.CollectibleCards.ListItem.Title"
         android:layout_width="@dimen/size_constrained"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
@@ -37,7 +37,7 @@
 
     <TextView
         android:id="@+id/textViewItemListRarity"
-        style="@style/Theme.SuperheroCards.ListItem.Subtitle"
+        style="@style/Theme.CollectibleCards.ListItem.Subtitle"
         android:layout_width="@dimen/size_constrained"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/textViewItemListName"

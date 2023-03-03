@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name" translatable="false">SuperheroCards</string>
     <string name="fake_username" translatable="false">Ian Pedraza</string>
     <string name="fake_user_id" translatable="false">27389274831687463876892</string>
 

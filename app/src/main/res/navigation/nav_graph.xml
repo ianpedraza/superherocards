@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.ianpedraza.superherocards.ui.cards.list.ListFragment"
+        android:name="com.ianpedraza.collectiblecards.ui.cards.list.ListFragment"
         android:label="@string/list"
         tools:layout="@layout/fragment_list">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/gridListFragment"
-        android:name="com.ianpedraza.superherocards.ui.cards.grid.GridListFragment"
+        android:name="com.ianpedraza.collectiblecards.ui.cards.grid.GridListFragment"
         android:label="@string/grid"
         tools:layout="@layout/fragment_grid_list">
         <action
@@ -26,21 +26,21 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.ianpedraza.superherocards.ui.profile.ProfileFragment"
+        android:name="com.ianpedraza.collectiblecards.ui.profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.ianpedraza.superherocards.ui.detail.DetailFragment"
+        android:name="com.ianpedraza.collectiblecards.ui.detail.DetailFragment"
         android:label="@string/detail"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="card"
-            app:argType="com.ianpedraza.superherocards.domain.models.CardModel" />
+            app:argType="com.ianpedraza.collectiblecards.domain.models.CardModel" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.ianpedraza.superherocards.ui.favorites.FavoritesFragment"
+        android:name="com.ianpedraza.collectiblecards.ui.favorites.FavoritesFragment"
         android:label="@string/favorites"
         tools:layout="@layout/fragment_favorites">
         <action

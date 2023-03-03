@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/textViewItemGridRarity"
-        style="@style/Theme.SuperheroCards.GridItem.Rarity"
+        style="@style/Theme.CollectibleCards.GridItem.Rarity"
         android:layout_width="@dimen/size_constrained"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_default"
@@ -52,12 +52,13 @@
 
             <TextView
                 android:id="@+id/textViewItemGridName"
-                style="@style/Theme.SuperheroCards.GridItem.Title"
+                style="@style/Theme.CollectibleCards.GridItem.Title"
                 android:layout_width="@dimen/size_constrained"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_small"
                 android:layout_marginEnd="@dimen/margin_small"
                 android:layout_marginBottom="@dimen/margin_default"
+                android:fontFamily="More Fonts..."
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
